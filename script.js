@@ -6,16 +6,14 @@ const form = function () {
   let upperCasePassword = /[A-Z]/;
   let lowerCasePassword = /[a-z]/;
   let numbersPassword = /[0-9]/;
-  let lenPassword = 8;
   let status = document.getElementById("status");
   if (
     !upperCasePassword.test(password) ||
     !lowerCasePassword.test(password) ||
     !numbersPassword.test(password) ||
-    password.length < lenPassword
+    password.length < 8
   )
-    return (status.innerText =
-      `Password minimal ${lenPassword} karakter, mengandung huruf besar, huruf kecil, dan angka`);
+    return (status.innerText = `Password minimal 8 karakter, mengandung huruf besar,huruf kecil, dan angka`);
 
   if (name != "" && email != "" && password != "") {
     return swal({
@@ -33,11 +31,7 @@ const form = function () {
     swal({
       title: "Gagal Login",
       text:
-        name === ""
-          ? "Masukkan Nama"
-          : email === ""
-          ? "Masukkan Email"
-          : "",
+        name === "" ? "Masukkan Nama" : email === "" ? "Masukkan Email" : "",
       icon: "error",
     });
   }
